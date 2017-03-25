@@ -1,124 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <!-- planets -->
-      <a-assets>
-        <a-mixin id="space" geometry="primitive: sphere; radius: 500"
-                material="color: #111; shader: flat"
-                scale="-1 -1 -1">
-        
-        <a-mixin id="planet" geometry="primitive: sphere; radius: 5"
-                 material="color: #FFF; shader: flat"
-                 light="color: #FFEB3B; distance: 120; intensity: 2; type: point">
-        </a-mixin>
-      </a-assets>
-
-      <!-- Camera. -->
-      <a-entity position="0 0 300">
-        <a-camera fov="45" user-height="0"></a-camera>
-      </a-entity>
-
-      <!-- space. -->
-      <a-entity mixin="space"></a-entity>
-
-      <!-- Sun. -->
-      <a-entity position="0 0 0" material="src: url(img/shape_sol.png)">
-        <a-entity mixin="planet" position="0 -20 0" geometry="primitive: sphere; radius: 80" material="src: url(img/shape_sol.jpg)"></a-entity>
-      </a-entity>
-      
-       <!--Mercurio. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="100 -20 0" geometry="primitive: sphere; radius: 2" material="src: url(img/shape_mercurio.jpg)"></a-entity>
-      
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="4000">
-        </a-animation>
-      </a-entity>
-      
-       <!--venus. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="140 -20 0" geometry="primitive: sphere; radius: 4" material="src: url(img/shape_venus.jpg)"></a-entity>
-      
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="10000">
-        </a-animation>
-      </a-entity>
-      
-       <!--terra. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="160 -20 0" geometry="primitive: sphere; radius: 5" material="src: url(img/shape_terra.jpg)"></a-entity>
-      
-        <!--Lua-->
-        <a-entity position="160 -20 0">
-          <a-entity mixin="planet" position="10 0 0" geometry="primitive: sphere; radius: 1" material="src: url(img/shape_lua.jpg)"></a-entity>
-        
-          <a-animation attribute="rotation" to="0 360 0"
-                       repeat="indefinite" easing="linear" dur="2000">
-          </a-animation>
-        </a-entity>
-      
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="11000">
-        </a-animation>
-      </a-entity>
-  
-  
-       <!--marte. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="180 -20 0" geometry="primitive: sphere; radius: 3" material="src: url(img/shape_marte.jpg)"></a-entity>
-        
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="5000">
-        </a-animation>
-      
-      </a-entity>
-
-       <!--jupter. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="240 -20 0" geometry="primitive: sphere; radius: 20" material="src: url(img/shape_jupter.jpg)"></a-entity>
-      
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="61000">
-        </a-animation>
-      </a-entity>
-  
-       <!--saturno. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="280 -20 0" geometry="primitive: sphere; radius: 18" material="src: url(img/shape_saturno.jpg)"></a-entity>
-      
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="37000">
-        </a-animation>
-      </a-entity>
-      
-        <!--uranio. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="300 -20 0" geometry="primitive: sphere; radius: 8" material="src: url(img/shape_uranio.jpg)"></a-entity>
-        <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="22000">
-        </a-animation>
-      
-      </a-entity>
-      
-        <!--neturno. -->
-      <a-entity position="0 0 0">
-        <a-entity mixin="planet" position="320 -20 0" geometry="primitive: sphere; radius: 8" material="src: url(img/shape_neturno.jpg)"></a-entity>
-      
-         <a-animation attribute="rotation" to="0 360 0"
-                     repeat="indefinite" easing="linear" dur="25000">
-        </a-animation>
-        <a-entity mixin="light" position="30 0 0"></a-entity>
-      
-      </a-entity>
-  
-  
-  
-  
-    </a-scene>
-    
-  <body>
+   <head>
+      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+   </head>
+   <body>
+      <a-scene>
+         <a-sky src="img/universe.jpg"  phi-length="360" repeat="20 20" ></a-sky>
+         <!-- planets -->
+         <a-assets>
+            <a-mixin id="space" geometry="primitive: sphere; radius: 500"
+               material="color: #111; shader: flat"
+               scale="-1 -1 -1">
+            <a-mixin id="planet" geometry="primitive: sphere; radius: 5"
+               material="color: #FFF; shader: flat"
+               light="color: #FFEB3B; distance: 120; intensity: 2; type: point">
+            </a-mixin>
+         </a-assets>
+         <!-- Camera. -->
+         <a-entity position="0 100 500">
+            <a-camera fov="45" user-height="0"></a-camera>
+         </a-entity>
+         <!-- space. -->
+         <!--<a-entity mixin="space"></a-entity>-->
+         <!-- Sun. -->
+         <a-entity position="0 0 0" material="src: url(img/shape_sol.png)">
+            <a-entity light="color: #AFA; intensity: 1.5" mixin="planet" position="0 -20 0" geometry="primitive: sphere; radius: 80" material="src: url(img/shape_sol.jpg)"></a-entity>
+         </a-entity>
+         <!--Mercurio. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="100 -20 0" geometry="primitive: sphere; radius: 2" material="src: url(img/shape_mercurio.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="4000">
+            </a-animation>
+         </a-entity>
+         <!--venus. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="140 -20 0" geometry="primitive: sphere; radius: 4" material="src: url(img/shape_venus.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="10000">
+            </a-animation>
+         </a-entity>
+         <!--terra. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="160 -20 0" geometry="primitive: sphere; radius: 5" material="src: url(img/shape_terra.jpg)"></a-entity>
+            <!--Lua-->
+            <a-entity position="160 -20 0">
+               <a-entity mixin="planet" position="10 0 0" geometry="primitive: sphere; radius: 1" material="src: url(img/shape_lua.jpg)"></a-entity>
+               <a-animation attribute="rotation" to="0 360 0"
+                  repeat="indefinite" easing="linear" dur="2000">
+               </a-animation>
+            </a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="11000">
+            </a-animation>
+         </a-entity>
+         <!--marte. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="180 -20 0" geometry="primitive: sphere; radius: 3" material="src: url(img/shape_marte.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="5000">
+            </a-animation>
+         </a-entity>
+         <!--jupter. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="240 -20 0" geometry="primitive: sphere; radius: 20" material="src: url(img/shape_jupter.jpg)"></a-entity>
+            <a-entity position="240 -20 0">
+               <a-entity  position="0 0 0" rotation="90 0 0" geometry="primitive: ring; radiusInner: 35; radiusOuter: 23"  material="shader: flat; color: #8D6E63; opacity: 0.7">
+               </a-entity>
+            </a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="61000">
+            </a-animation>
+         </a-entity>
+         <!--saturno. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="280 -20 0" geometry="primitive: sphere; radius: 18" material="src: url(img/shape_saturno.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="37000">
+            </a-animation>
+         </a-entity>
+         <!--uranio. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="300 -20 0" geometry="primitive: sphere; radius: 8" material="src: url(img/shape_uranio.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="22000">
+            </a-animation>
+         </a-entity>
+         <!--neturno. -->
+         <a-entity position="0 0 0">
+            <a-entity mixin="planet" position="320 -20 0" geometry="primitive: sphere; radius: 8" material="src: url(img/shape_neturno.jpg)"></a-entity>
+            <a-animation attribute="rotation" to="0 360 0"
+               repeat="indefinite" easing="linear" dur="25000">
+            </a-animation>
+            <a-entity mixin="light" position="30 0 0"></a-entity>
+         </a-entity>
+      </a-scene>
+      <body>
 </html>
